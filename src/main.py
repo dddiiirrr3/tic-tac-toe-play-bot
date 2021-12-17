@@ -4,8 +4,7 @@ import os
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, Filters, MessageHandler
 from dotenv import load_dotenv
 
-from handlers import start, help_handler, game_handler, game_button_handler, echo
-
+from handlers import start, help_handler, game_handler, game_button_handler, echo, test_handler
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
@@ -29,6 +28,7 @@ def main():
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help_handler))
     dp.add_handler(CommandHandler("game", game_handler))
+    dp.add_handler(CommandHandler("test", test_handler))
     dp.add_handler(CallbackQueryHandler(game_button_handler, pattern='^button_'))
 
     dp.add_handler(MessageHandler(Filters.text, echo))

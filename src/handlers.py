@@ -47,3 +47,11 @@ def game_button_handler(update: Update, context: CallbackContext):
         message_id=game_message.message_id,
         reply_markup=game_keyboard(game)
     )
+
+
+def test_handler(update: Update, context: CallbackContext):
+    context.bot.send_message(
+        chat_id=update.effective_chat.id,
+        text='test test test auto deploy',
+        parse_mode=ParseMode.MARKDOWN_V2,
+    )
